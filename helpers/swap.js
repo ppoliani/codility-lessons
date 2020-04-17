@@ -5,3 +5,5 @@ const swap = (list, a, b) => {
 
   return list;
 }
+
+module.exports = swap;

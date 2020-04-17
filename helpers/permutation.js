@@ -1,8 +1,9 @@
 
-const permute = (list, startIndex, endIndex) => {
+const swap = require('./swap');
+
+const permute = (list, startIndex, endIndex, func) => {
   if(startIndex === endIndex) {
-    const copy = list.slice();
-    execTimes.push(findTime(copy, copy.splice(0, 1)[0]));
+    func(list);
   }
   else {
     for (let i = startIndex; i <= endIndex; i++)  {  
@@ -12,3 +13,5 @@ const permute = (list, startIndex, endIndex) => {
     }
   }
 }
+
+module.exports = {permute}

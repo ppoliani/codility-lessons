@@ -1,4 +1,4 @@
-const Stack = require('./stack');
+const Stack = require('./helpers//stack');
 
 const run = n => {
 const stack = Stack.createStack();
@@ -54,7 +54,6 @@ const solution = n => {
 
 return solution(n);
 }
-
 
 console.log(run(328))
 console.log(run(529))

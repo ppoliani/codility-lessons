@@ -30,6 +30,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/arrays/oddOccurrencesInArray.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Perm Missing Elem",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/time-complexity/permMissingElem.js"
     }
   ]
 }
