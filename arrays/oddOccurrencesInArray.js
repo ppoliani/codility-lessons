@@ -1,23 +1,21 @@
-const Stack = require('../stack');
-
 const run = arr => {
-  const stack = Stack.createStack();
+  const map = {};
 
   const solution = (arr) => {
-    const sorted = arr.sort();
+    arr.forEach(item => {
+      const exist = map[item];
 
-    sorted.forEach(item => {
-      const top = stack.peak();
-
-      if(top && top === item) {
-        stack.pop();
+      if(exist) {
+        delete map[item];
       }
       else {
-        stack.push(item);
+        map[item] = true;
       }
     });
 
-    return stack.pop();
+    const unpaired = Object.keys(map);
+
+    return unpaired ? unpaired[0] : undefined;
   }
 
   return solution(arr);
