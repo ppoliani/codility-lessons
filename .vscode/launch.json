@@ -12,6 +12,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/binaryGap.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Array Roration",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/arrays/rotation.js"
     }
   ]
 }
