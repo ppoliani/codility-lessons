@@ -1,68 +1,32 @@
+const Stack = require('./stack');
 
 const run = n => {
+const stack = Stack.createStack();
 
-// const createItem = (char, count, closed) => ({char, count, closed});
-// const push = stack => item => stack.items.push(item);
-// const pop = stack => stack.items.pop();
-// const peak = stack => stack.items[stack.length - 1] || {char: '', count: 0};
-
-// const increaseCount = stack => {
-//   const top = peak(stack);
-//   pop(stack);
-//   push(createItem(top.char, top.count + 1))
-// }
-
-
-
-// const handler = {
-//   apply: (target, thisArg, args) => {
-//     return target(thisArg)(...args);
-//     // 
-//   }
-// };
-
-// const createStack = () => {
-//   const state = {items: []};
-//   const interface = {
-//     createItem,
-//     push,
-//     pop,
-//     peak,
-//     increaseCount,
-//     ...state
-//   }
-
-//   return new Proxy(interface, handler);
-// }
-
-let _stack = [];
-const createItem = (char, count, closed) => ({char, count, closed});
-const push = (item, stack=_stack) => stack.push(item);
-const pop = (stack=_stack) => stack.pop();
-const peak = (stack=_stack) => stack[stack.length - 1];
-const increaseCount = (stack=_stack) => {
-  const top = peak();
+const increaseCount = () => {
+  const top = stack.peak();
 
   if(top) {
-    pop();
-    push(createItem(top.char, top.count + 1))
+    stack.pop();
+    stack.push(stack.createItem(top.char, top.count + 1))
   }
 }
+
 const newEntry = () => {
-  const top = peak();
+  const top = stack.peak();
 
   if(top && top.count !== 0) {
-    pop();
-    push(createItem(top.char, top.count, true))
+    stack.pop();
+    stack.push(stack.createItem(top.char, top.count, true))
   }
   
-  push(createItem('', 0))
+  stack.push(stack.createItem('', 0))
 }
 
 const toBinary = n => n.toString(2);
 
 const getMaxGap = () => {
-  const filtered = _stack.filter(i => i.closed)
+  const filtered = stack.items.filter(i => i.closed)
   
   if(filtered.length === 0) return 0;
 
@@ -93,9 +57,9 @@ return solution(n);
 
 
 console.log(run(328))
-// console.log(run(529))
-// console.log(run(1041))
-// console.log(run(0))
-// console.log(run(1))
-// console.log(run(15))
-// console.log(run(32))
+console.log(run(529))
+console.log(run(1041))
+console.log(run(0))
+console.log(run(1))
+console.log(run(15))
+console.log(run(32))
