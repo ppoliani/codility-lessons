@@ -1,30 +1,18 @@
 
+const {sum} = require('../helpers/aggregate');
+
 const run = (arr) => {
-  const checkIfMissing = (a, b) => a + 1 !== b;
-
   const solution = (arr) => {
-    if(arr.length === 0) return 0;
-    if(arr.length === 1) return 0;
+    const expectedSum = sum(Array.from(new Array(arr.length + 1), (_, i) => i + 1))
+    const currentSum = sum(arr);
 
-    const sorted = arr.sort();
-    let item = null;
-    let i = 0;
-    
-    while(item = sorted[i]) {
-      const next = sorted[i + 1];
-      if(next) {
-        if(checkIfMissing(item, next)) {
-          return item + 1;
-        }
-      }
-
-      i++;
-    }
+    return expectedSum - currentSum;
   }
 
   return solution(arr);
 }
 
+console.log(run([2, 3, 1, 4]));
 console.log(run([2, 3, 4, 5]));
 console.log(run([2, 3, 1, 5]));
 console.log(run([1]));
