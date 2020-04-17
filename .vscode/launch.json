@@ -39,6 +39,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/time-complexity/permMissingElem.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Tape Equilibrium",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/time-complexity/tapeEquilibrium.js"
     }
   ]
 }
