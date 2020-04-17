@@ -1,5 +1,5 @@
 
-const run = param => {
+const run = (param) => {
 
   const solution = (param) => {
 
