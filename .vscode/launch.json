@@ -48,6 +48,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/time-complexity/tapeEquilibrium.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Counting Elements",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/counting-elements/frogRiverOne.js"
     }
   ]
 }
