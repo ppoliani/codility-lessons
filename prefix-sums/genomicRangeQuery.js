@@ -2,22 +2,36 @@ const assert = require('assert');
 
 const run = (s, p, q) => {
   const solution = (s, p, q) => {
-    const getMinFactor = subSeq => subSeq.split('').reduce((min, n) => factors[n] < min ? factors[n] : min, Number.MAX_SAFE_INTEGER);
 
-    const factors = {
-      'A': 1,
-      'C': 2,
-      'G': 3,
-      'T': 4
+    const storeLastSeen = (lastSeen, char, n, i) => {
+      if(char === n) {
+        lastSeen[n][i] = i;
+      }
+      else {
+        const prev = lastSeen[n][i - 1];
+        lastSeen[n][i] = prev === undefined ? -1 : prev;
+      }
     }
     
+    const lastSeen = s.split('').reduce((acc, char, i) => {
+      storeLastSeen(acc, char, 'A', i);
+      storeLastSeen(acc, char, 'C', i);
+      storeLastSeen(acc, char, 'G', i);
+      storeLastSeen(acc, char, 'T', i);
+
+      return acc;
+    }, {'A': [], 'C': [], 'G': [], 'T': []});
+
     const result = [];
     const m = p.length;
     let i = 0;
 
     while(i < m) {
-      const subSeq = s.substring(p[i], q[i] + 1);
-      result.push(getMinFactor(subSeq));
+      if(lastSeen['A'][q[i]] >= p[i]) result.push(1);
+      else if(lastSeen['C'][q[i]] >= p[i]) result.push(2);
+      else if(lastSeen['G'][q[i]] >= p[i]) result.push(3);
+      else if(lastSeen['T'][q[i]] >= p[i]) result.push(4);
+
 
       i++;
     }
