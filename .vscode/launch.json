@@ -84,6 +84,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/counting-elements/permCheck.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Count Divs",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/counting-elements/countDiv.js"
     }
   ]
 }
