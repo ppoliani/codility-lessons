@@ -1,3 +1,4 @@
+const assert = require('assert');
 
 const run = (param) => {
 
@@ -8,4 +9,4 @@ const run = (param) => {
   return solution(param);
 }
 
-console.log(run(param));
+assert.equal(run(param), true);

@@ -75,6 +75,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/counting-elements/missingInt.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Perm Check",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/counting-elements/permCheck.js"
     }
   ]
 }
