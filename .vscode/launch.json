@@ -92,7 +92,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/counting-elements/countDiv.js"
+      "program": "${workspaceFolder}/prefix-sums/countDiv.js"
     }
   ]
 }
