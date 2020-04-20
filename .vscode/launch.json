@@ -66,6 +66,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/counting-elements/maxCounter.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Missing Integer",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/counting-elements/missingInt.js"
     }
   ]
 }
