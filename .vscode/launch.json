@@ -57,6 +57,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/counting-elements/frogRiverOne.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Max counters",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/counting-elements/maxCounter.js"
     }
   ]
 }
