@@ -129,6 +129,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/prefix-sums/passingCars.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Distinct cars",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/sorting/distinct.js"
     }
   ]
 }
