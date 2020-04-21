@@ -147,6 +147,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/sorting/maxProductOfThree.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Number of distinct interesctions",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/sorting/numberOfDiscIntersections.js"
     }
   ]
 }
