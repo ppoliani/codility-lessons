@@ -6,7 +6,7 @@ const memoize  = (func, paramSelector) => (...args) => {
   if (cache[key]){
    return cache[key];
   }
-  else{
+  else {
     const val = func(...args);
     cache[key] = val;
     return val;

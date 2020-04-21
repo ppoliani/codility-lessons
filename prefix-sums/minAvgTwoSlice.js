@@ -17,8 +17,6 @@ const run = (arr) => {
         minIndex = i;
       }
 
-      console.log('', i, j)
-
       const [minL, minIndexL] = recurMemo(i + 1, j, min, minIndex);
       const [minR, minIndexR] = recurMemo(i, j - 1, minL, minIndexL);
 
@@ -36,3 +34,5 @@ const run = (arr) => {
 }
 
 assert.equal(run([4, 2, 2, 5, 1, 5, 8]), 1);
+assert.equal(run([4, 4]), 0);
+assert.equal(run([1, 1, 1]), 0);
