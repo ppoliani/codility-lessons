@@ -120,6 +120,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/prefix-sums/minAvgTwoSliceFast.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Passing cars",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/prefix-sums/passingCars.js"
     }
   ]
 }

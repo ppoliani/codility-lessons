@@ -1,6 +1,6 @@
 const cache = {};
 
-const memoize  = (func, paramSelector) => (...args) => {     
+const memoize  = (func, paramSelector=a => a) => (...args) => {     
   const key = JSON.stringify(paramSelector(args));
 
   if (cache[key]){
