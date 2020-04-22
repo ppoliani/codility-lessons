@@ -10,6 +10,7 @@ const enqueue = new Proxy(stack => item => stack.items.push(item), handler);
 const dequeue = new Proxy(stack => stack.items.shift(), handler);
 const peak = new Proxy(stack => stack.items[stack.items.length - 1], handler);
 const count = new Proxy(stack => stack.items.length, handler);
+const at = new Proxy(stack => i => stack.items[i], handler);
 
 const createQueue = () => {
   return {
@@ -17,7 +18,8 @@ const createQueue = () => {
     enqueue,
     dequeue,
     peak,
-    count
+    count,
+    at
   }
 };
 
