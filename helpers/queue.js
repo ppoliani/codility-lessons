@@ -6,19 +6,19 @@ const handler = {
   }
 };
 
-const push = new Proxy(stack => item => stack.items.push(item), handler);
-const pop = new Proxy(stack => stack.items.pop(), handler);
+const enqueue = new Proxy(stack => item => stack.items.push(item), handler);
+const dequeue = new Proxy(stack => stack.items.shift(), handler);
 const peak = new Proxy(stack => stack.items[stack.items.length - 1], handler);
 const count = new Proxy(stack => stack.items.length, handler);
 
-const createStack = () => {
+const createQueue = () => {
   return {
     items: [],
-    push,
-    pop,
+    enqueue,
+    dequeue,
     peak,
     count
   }
 };
 
-module.exports = {createStack}
+module.exports = {createQueue}

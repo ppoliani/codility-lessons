@@ -3,12 +3,14 @@ const Stack = require('./helpers/stack');
 const run = n => {
 const stack = Stack.createStack();
 
+const createItem = (char, count, closed) => ({char, count, closed});
+
 const increaseCount = () => {
   const top = stack.peak();
 
   if(top) {
     stack.pop();
-    stack.push(stack.createItem(top.char, top.count + 1))
+    stack.push(createItem(top.char, top.count + 1))
   }
 }
 

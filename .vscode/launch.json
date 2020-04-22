@@ -192,6 +192,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/stack-queues/nesting.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Stone Wall",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/stack-queues/stoneWall.js"
     }
   ]
 }
