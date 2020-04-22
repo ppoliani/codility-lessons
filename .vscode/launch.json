@@ -183,6 +183,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/stack-queues/fish.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Nesting",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/stack-queues/nesting.js"
     }
   ]
 }
