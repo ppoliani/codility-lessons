@@ -165,6 +165,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/sorting/triangle.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Brackets",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/stack-queues/brackets.js"
     }
   ]
 }

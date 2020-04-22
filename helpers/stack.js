@@ -10,6 +10,7 @@ const createItem = (char, count, closed) => ({char, count, closed});
 const push = new Proxy(stack => item => stack.items.push(item), handler);
 const pop = new Proxy(stack => stack.items.pop(), handler);
 const peak = new Proxy(stack => stack.items[stack.items.length - 1], handler);
+const count = new Proxy(stack => stack.items.length, handler);
 
 const createStack = () => {
   return {
@@ -17,7 +18,8 @@ const createStack = () => {
     createItem,
     push,
     pop,
-    peak
+    peak,
+    count
   }
 };
 
