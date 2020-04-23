@@ -3,6 +3,8 @@ const assert = require('assert');
 const run = (arr) => {
   
   const solution = (arr) => {
+    let dominator = -1;
+
     const getLeaderIndexes = () => {
       const threshold = arr.length / 2;
       const items = {};
@@ -21,60 +23,35 @@ const run = (arr) => {
         items[arr[i]].indexes.push(i);
   
         if(items[arr[i]].count > threshold) {
-          return items[arr[i]].indexes;
+          dominator = arr[i];
         }
   
         i++;
       }
   
-      return [];
+      return dominator !== -1 
+        ? items[dominator].indexes 
+        : [];
     }
 
     const leaderIndexes = getLeaderIndexes();
 
-    const countLeaderOccurencesInRange = range => {
-      let count  = 0;
-      let i = 0;
-
-      while(i < leaderIndexes.length) {
-        const index = leaderIndexes[i];
-
-        if(index > range[1]) return count
-        if(index >= range[0] && index <= range[1]) {
-          count += 1;
-        }
-
-        i++;
-      }
-      return leaderIndexes.reduce((count, index) => {
-        if(index >= range[0] && index <= range[1]) {
-          count += 1;
-        }
-
-        return count;
-      }, 0)
-    }
-
-    const isLeaderInSlice = (count, range) => {
-      return count > Math.round((range[1] - range[0]) / 2);
-    }
 
     let numOfEquiLeaders = 0;
-    let splitPoint = 0;
+    let d1 = 0;
+    let d2 = leaderIndexes.length;
+    let i = 0
 
-    while(splitPoint < arr.length) {
-      const range = [0, splitPoint];
-      const range2 = [splitPoint + 1, arr.length - 1];
-      const numOfLeaderInSlice1 = countLeaderOccurencesInRange(range);
-      const numOfLeaderInSlice2 = leaderIndexes.length - numOfLeaderInSlice1;
-  
-      if(splitPoint >= arr.length) return;
-  
-      if(isLeaderInSlice(numOfLeaderInSlice1, range) && isLeaderInSlice(numOfLeaderInSlice2, range2)) {
-        numOfEquiLeaders += 1;
+    while(i < arr.length) {
+      if(arr[i] === dominator) {
+        d1 += 1;
+        d2 -= 1;
+      }
+      if(d1 > (i + 1) / 2 && d2 > (arr.length - i - 1) / 2) {
+        numOfEquiLeaders ++;
       }
 
-      splitPoint++;
+      i++;
     }
 
     return numOfEquiLeaders;
