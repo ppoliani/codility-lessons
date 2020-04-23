@@ -3,7 +3,7 @@ const assert = require('assert');
 const run = (arr) => {
   
   const solution = (arr) => {
-    const getLeader = (arr) => {
+    const getLeaderIndexes = () => {
       const threshold = arr.length / 2;
       const items = {};
   
@@ -21,42 +21,61 @@ const run = (arr) => {
         items[arr[i]].indexes.push(i);
   
         if(items[arr[i]].count > threshold) {
-          return arr[i];
+          return items[arr[i]].indexes;
         }
   
         i++;
       }
   
-      return -1;
+      return [];
+    }
+
+    const leaderIndexes = getLeaderIndexes();
+
+    const countLeaderOccurencesInRange = range => {
+      let count  = 0;
+      let i = 0;
+
+      while(i < leaderIndexes.length) {
+        const index = leaderIndexes[i];
+
+        if(index > range[1]) return count
+        if(index >= range[0] && index <= range[1]) {
+          count += 1;
+        }
+
+        i++;
+      }
+      return leaderIndexes.reduce((count, index) => {
+        if(index >= range[0] && index <= range[1]) {
+          count += 1;
+        }
+
+        return count;
+      }, 0)
+    }
+
+    const isLeaderInSlice = (count, range) => {
+      return count > Math.round((range[1] - range[0]) / 2);
     }
 
     let numOfEquiLeaders = 0;
+    let splitPoint = 0;
 
-    const recur = (slice1, slice2) => {
-      if(slice1.length === 1) {
-        const leader1 = getLeader(slice1);
-        const leader2 = getLeader(slice2);
-
-        if(leader1 = -1 && leader1 === leader2) {
-          numOfEquiLeaders += 1;
-        }
-
-<<<<<<< Updated upstream
-      const leader1 = getLeader(slice1);
-      const leader2 = getLeader(slice2);
-
-      if(leader1 !== -1 && leader1 === leader2) {
+    while(splitPoint < arr.length) {
+      const range = [0, splitPoint];
+      const range2 = [splitPoint + 1, arr.length - 1];
+      const numOfLeaderInSlice1 = countLeaderOccurencesInRange(range);
+      const numOfLeaderInSlice2 = leaderIndexes.length - numOfLeaderInSlice1;
+  
+      if(splitPoint >= arr.length) return;
+  
+      if(isLeaderInSlice(numOfLeaderInSlice1, range) && isLeaderInSlice(numOfLeaderInSlice2, range2)) {
         numOfEquiLeaders += 1;
-=======
-        return;
->>>>>>> Stashed changes
       }
 
-      return recur(
-        slice1.split(0, slice1.length / 2), 
-        slice1.split(slice1.length / 2, slice1.length)
-      )
-    } 
+      splitPoint++;
+    }
 
     return numOfEquiLeaders;
   }
