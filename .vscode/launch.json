@@ -201,6 +201,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/stack-queues/stoneWall.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Dominator",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/leader/dominator.js"
     }
   ]
 }
