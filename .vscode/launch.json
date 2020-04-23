@@ -210,6 +210,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/leader/dominator.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Equileader",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/leader/equileader.js"
     }
   ]
 }
