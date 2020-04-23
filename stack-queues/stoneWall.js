@@ -5,48 +5,33 @@ const run = (heights) => {
 
   const solution = (heights) => {
     const stack = Stack.createStack();
-    const createBlock = (height, width) => ({height, width});
-    const blocks = [];
+    let blocks = 0;
     
-    const iterate = block => {
-      let count = stack.count();
+    const iterate = newHeight => {
+      let topHeight = stack.peak();
 
-      if(count === 0) {
-        stack.push(block);
-        return;
+      if(newHeight === topHeight) return;
+      
+      if(topHeight === undefined || newHeight > topHeight) {
+        stack.push(newHeight);
+        blocks += 1;
       }
+      else {
+        stack.pop();
 
-      while(count > 0) {
-        const top = stack.peak();
-        const existingBlock = stack.at(count - 1);
-
-        if(block.height < existingBlock.height) {
-          if(top.height !== block.height) {
-            blocks.push(stack.pop());
-            stack.push(block);
-            count = stack.count();
-          }
+        if(stack.count() >= 0) {
+          iterate(newHeight);
         }
-        else {
-          stack.at(count - 1).width += 1;
-
-
-          if(top.height !== block.height) {
-            stack.push(block);
-          }
-        }
-
-        count--;
       }
     }
 
     let i = 0;
     while(i < heights.length) {
-      iterate(createBlock(heights[i], 1));
+      iterate(heights[i]);
       i++;
     }
 
-    return blocks.length;
+    return blocks;
   }
 
   return solution(heights);
