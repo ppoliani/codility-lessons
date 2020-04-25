@@ -237,6 +237,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/max-slice/maxProfit.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Max slice sum",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/max-slice/maxSliceSum.js"
     }
   ]
 }
