@@ -219,6 +219,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/leader/equileader.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Max double slice sum",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/max-slice/maxDoubleSliceSum.js"
     }
   ]
 }
