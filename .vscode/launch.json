@@ -246,6 +246,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/max-slice/maxSliceSum.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Count Factors",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/prime-composite/countFactors.js"
     }
   ]
 }
