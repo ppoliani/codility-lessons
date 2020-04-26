@@ -37,6 +37,7 @@ const run = (arr) => {
       }
 
       if (count > flagCount) {
+        if(Math.abs(prevFlagCount - flagCount) === 1) return flagCount;
         return check(flagCount, flagCount + Math.ceil((flagCount - prevFlagCount) / 2))
       }
       else if(count < flagCount) {
@@ -52,8 +53,8 @@ const run = (arr) => {
   return solution(arr);
 }
 
-const mediumArray = Array(100).fill(0).reduce((acc) => [...acc, 0, 1, 0], [])
-assert.equal(run(mediumArray), 17);
+const mediumArray = Array(25000).fill(0).reduce((acc) => [...acc, 0, 1, 0], [])
+assert.equal(run(mediumArray), 273);
 assert.equal(run([1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2]), 3);
 assert.equal(run([1, 5, 2]), 1);
 assert.equal(run([5]), 0);
