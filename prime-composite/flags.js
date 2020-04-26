@@ -31,23 +31,16 @@ const run = (arr) => {
         if(Math.abs(peaks[i] - currentPeak) >= flagCount) {
           count += 1;
           currentPeak = peaks[i];
-
-          if (count > flagCount) {
-            break;
-          }
-        }
-        else if(peaks.length - i < flagCount) {
-          break;
         }
 
         i++;
       }
 
       if (count > flagCount) {
-        return check(flagCount, flagCount + Math.floor((flagCount - prevFlagCount) / 2))
+        return check(flagCount, flagCount + Math.ceil((flagCount - prevFlagCount) / 2))
       }
       else if(count < flagCount) {
-        return check(prevFlagCount, Math.floor((flagCount - prevFlagCount) / 2) + prevFlagCount)
+        return check(prevFlagCount, Math.ceil((flagCount - prevFlagCount) / 2) + prevFlagCount)
       }
 
       return flagCount;
@@ -59,6 +52,8 @@ const run = (arr) => {
   return solution(arr);
 }
 
+const mediumArray = Array(100).fill(0).reduce((acc) => [...acc, 0, 1, 0], [])
+assert.equal(run(mediumArray), 17);
 assert.equal(run([1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2]), 3);
 assert.equal(run([1, 5, 2]), 1);
 assert.equal(run([5]), 0);
