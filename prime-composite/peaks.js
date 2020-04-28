@@ -3,7 +3,7 @@ const assert = require('assert');
 const run = (arr) => {
 
   const solution = (arr) => {
-    console.log(arr);
+    const length = arr.length;
     const isPeak = i => arr[i] > arr[i-1] && arr[i] > arr[i+1];
 
     const findPeaks = () => {
@@ -22,26 +22,26 @@ const run = (arr) => {
     }
 
     const peaks = findPeaks();
-    let numOfBlocks = peaks.length;
+    let numOfBlocks = 0;
+    
+    for (let i = 1; i < length; i++) {
+      if(length % i === 0){
+        let counter = 0;
+        const blockSize = length / i;
 
-    while(numOfBlocks > 0) {
-      if(arr.length % numOfBlocks !== 0) numOfBlocks -= 1;
-      const arraySize = arr.length / numOfBlocks;
+        for (let j = 0; j < peaks.length; j++) {
+          const l = counter * blockSize;
+          const r = (counter + 1) * blockSize;
+          
+          if(peaks[j] >= l && peaks[j] < r) {
+            counter += 1;
+          }
+        }
 
-
-      let j = 0;
-      let edge = 0;
-
-      while(edge < arr.length - 1) {
-        edge = edge + arraySize;
-        const l = edge - arraySize;
-        if(peaks[j] >= l && peaks[j] <= edge - 1) j++;
+        if(counter === i) {
+          numOfBlocks = counter;
+        }
       }
-
-      if(j < numOfBlocks) {
-        numOfBlocks -= 1;
-      }
-      else break;
     }
 
     return numOfBlocks;
