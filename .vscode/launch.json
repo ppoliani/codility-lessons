@@ -264,6 +264,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/prime-composite/flags.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Flags",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/prime-composite/minPerimeterRectangle.js"
     }
   ]
 }
