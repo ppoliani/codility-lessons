@@ -1,23 +1,11 @@
 const assert = require('assert');
+const {getFactors} = require('../helpers/arithmetic');
 
 const run = (area) => {
 
   const solution = (area) => {
     const perimeter = (w, h) => 2 * (w + h);
-    const getFactors = n => {
-      let i = 0;
-      const factors = [];
 
-      while(i * i <= n) {
-        if(n % i === 0) {
-          factors.push(i);
-        }
-
-        i++;
-      }
-
-      return factors;
-    }
 
     const factors = getFactors(area);
     let minPerimeter = 2 * (1 + area);
