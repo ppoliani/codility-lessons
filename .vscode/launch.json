@@ -268,11 +268,20 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Flags",
+      "name": "Min Perimeter Rectangle",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/prime-composite/minPerimeterRectangle.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Peaks",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/prime-composite/peaks.js"
     }
   ]
 }

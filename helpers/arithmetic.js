@@ -1,10 +1,11 @@
 const getFactors = n => {
-  let i = 0;
+  let i = 1;
   const factors = [];
 
-  while(i * i <= n) {
+  while(i <= Math.sqrt(n)) {
     if(n % i === 0) {
-      factors.push(i);
+      if(n / i === i) factors.push(i);
+      else factors.push(...[i, n / i]);
     }
 
     i++;
