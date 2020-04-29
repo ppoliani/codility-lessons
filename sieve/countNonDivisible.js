@@ -6,20 +6,29 @@ const run = (arr) => {
   const solution = (arr) => {
     const length = arr.length;
     let result = [];
-
-    const isDivisor = (x, n) => n % x === 0;
+    let items = {};
 
     for (let i = 0; i < length; i++) {
-      const elem = arr[i];
+      items[arr[i]] = (items[arr[i]] || 0) + 1
+    }
 
-      let nonDivisors = 0;
-      for (let j = 0; j < arr.length; j++) {
-        if(j !== i && !isDivisor(arr[j], elem)) {
-          nonDivisors += 1;
+    for (let i = 0; i < length; i++) {
+      const n = arr[i];
+      let numOfDivisors = 0;
+      let j = 1;
+
+      while(j * j < n) {
+        if(n % j === 0) {
+          numOfDivisors += items[j] || 0;
+          numOfDivisors += items[n / j] || 0;
         }
+
+        j++;
       }
 
-      result.push(nonDivisors);
+      if(j * j === n) numOfDivisors += (items[j] || 0);
+
+      result.push(length - numOfDivisors);
     }
 
     return result;
@@ -28,4 +37,6 @@ const run = (arr) => {
   return solution(arr);
 }
 
-assert.deepEqual(run([3, 1, 2, 3, 6]), [2, 4, 3, 2, 0]);
+// assert.deepEqual(run([3, 1, 2, 3, 6]), [2, 4, 3, 2, 0]);
+// assert.deepEqual(run([2]), [0]);
+assert.deepEqual(run([3, 4]), [0]);
