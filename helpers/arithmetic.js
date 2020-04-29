@@ -14,4 +14,18 @@ const getFactors = n => {
   return factors;
 }
 
-module.exports = {getFactors}
+const numOfFactors = n => {
+  const factors = 0;
+  let i = 2;
+
+  while(i * i <= n) {
+    if(n % i === 0) factors += 2;
+    i++;
+  }
+
+  if(i * i === n) factors += 1;
+
+  return factors;
+}
+
+module.exports = {getFactors, numOfFactors}

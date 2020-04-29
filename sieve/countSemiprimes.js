@@ -3,44 +3,66 @@ const assert = require('assert');
 const run = (N, P, Q) => {
 
   const solution = (N, P, Q) => {
-    // const prepareForFactorization = (start, n) => {
-    //   const factors = Array(n + 1).fill(0);
-    //   let i = Math.max(start, 2);
+    const sieve = (n) => {
+      const result = Array(n + 1).fill(true);
 
-    //   while(i * i <= n) {
-    //     if(factors[i] === 0) {
-    //       let k = i * i;
+      let i = 2;
 
-    //       while(k <= n) {
-    //         if(factors[k] === 0) factors[k] = i;
-    //         k += i;
-    //       }
-    //     }
+      while(i * i <= n) {
+        if(result[i]) {
+          let k = i * i;
 
-    //     i++;
-    //   }
+          while(k <= n) {
+            result[k] = false;
+            k += i;
+          }
+        }
 
-    //   return factors;
-    // }
+        i++;
+      }
 
-    // const factorization = (start, n) => {
-    //   const primeFactors = [];
-    //   const factors = prepareForFactorization(start, n)
+      return result;
+    }
+  
 
-    //   while(factors[n] > 0) {
-    //     primeFactors.push(factors[n])
-    //     n /= factors[n]
-    //   }
+    const getSemiprimes = n => {
+      const primeNumbers = sieve(n);
+      const semiprime = Array(n + 1).fill(0);
+      let i = 2;
 
-    //   primeFactors.push(n);
+      while(i * i <= n) {
+        if(primeNumbers[i]) {
+          let k = i;
+  
+          while(k * i <= n) {
+            if(primeNumbers[k]) semiprime[k * i] = 1;
+            k++;
+          }
+        }
+  
+        i++;
+      }
 
-    //   return primeFactors;
-    // }
+      return semiprime;
+    }
 
-    console.log(factorization(1, 26))
+    const semiPrimes = getSemiprimes(N);
+    const semiPrimesPrefixSum = [0];
+
+    for (let i = 1; i < semiPrimes.length; i++) {
+      semiPrimesPrefixSum[i] = semiPrimesPrefixSum[i - 1] + semiPrimes[i];
+    }
+
+    const result = [];
+
+    for (let i = 0; i < P.length; i++) {
+      result[i] = semiPrimesPrefixSum[Q[i]] - semiPrimesPrefixSum[P[i] - 1];
+    }
+
+    return result;
   }
 
   return solution(N, P, Q);
 }
 
-assert.equal(run(26, [1, 4, 16], [26, 10, 20]), [10, 4, 0]);
+assert.deepEqual(run(26, [1, 4, 16], [26, 10, 20]), [10, 4, 0]);
