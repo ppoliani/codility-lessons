@@ -291,6 +291,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/sieve/countNonDivisible.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Count semi-primes",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/sieve/countSemiprimes.js"
     }
   ]
 }
