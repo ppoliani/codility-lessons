@@ -282,6 +282,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/prime-composite/peaks.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Count not divisisble",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/sieve/countNonDivisible.js"
     }
   ]
 }
