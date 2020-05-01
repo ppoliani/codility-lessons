@@ -309,6 +309,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/euclidean/chocolatesByNumbers.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Common prime divisors",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/euclidean/commonPrimeDivisors.js"
     }
   ]
 }
