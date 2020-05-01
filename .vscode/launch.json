@@ -300,6 +300,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/sieve/countSemiprimes.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Chocolates by number",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/euclidean/chocolatesByNumbers.js"
     }
   ]
 }
