@@ -28,4 +28,13 @@ const numOfFactors = n => {
   return factors;
 }
 
-module.exports = {getFactors, numOfFactors}
+const gcd = (a, b) => {
+  if(a % b === 0) return b;
+  return gcd(b, a % b)
+}
+
+const lcm = (a, b) => {
+  return a * (b / gcd(a, b));
+}
+
+module.exports = {getFactors, numOfFactors, gcd, lcm}

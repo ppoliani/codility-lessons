@@ -1,22 +1,11 @@
 const assert = require('assert');
+const {lcm} = require('../helpers/arithmetic');
 
 const run = (N, M) => {
 
   const solution = (N, M) => {
-    const next = x => (x + M) % N;
-    const noConsumed = x => !consumed[x];
-
-    const consumed = {};
-    let nextChocolate = 0;
-    let count = 0;
-
-    while(noConsumed(nextChocolate)) {
-      consumed[nextChocolate] = true;
-      count += 1;
-      nextChocolate = next(nextChocolate);
-    }
-
-    return count;
+    console.log(lcm(N, M))
+    return lcm(N, M) / M;
   }
 
   return solution(N, M);
