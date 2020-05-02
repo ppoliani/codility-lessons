@@ -53,11 +53,26 @@ const fibDynamic = n => {
   return fib[n];
 }
 
+
+const inverseFib = n => {
+  const inverseList = {};
+  const fib = Array(n + 2).fill(0);
+  fib[1] = 1;
+
+  for (let i = 2; i < n + 1; i++) {
+    fib[i] = fib[i - 2] + fib[i - 1];
+    inverseList[fib[i]] = i;
+  }
+
+  return inverseList;
+}
+
 module.exports = {
   getFactors, 
   numOfFactors, 
   gcd, 
   lcm,
   fib,
-  fibDynamic
+  fibDynamic,
+  inverseFib
 }

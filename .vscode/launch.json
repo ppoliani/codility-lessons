@@ -318,6 +318,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/euclidean/commonPrimeDivisors.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Fib frog",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/fibonacci/fibFrog.js"
     }
   ]
 }
