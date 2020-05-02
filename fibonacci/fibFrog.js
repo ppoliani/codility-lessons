@@ -1,28 +1,47 @@
 const assert = require('assert');
-const {inverseFib} = require('../helpers/arithmetic');
+const {fibDynamic} = require('../helpers/arithmetic');
 
 const run = (arr) => {
 
   const solution = (arr) => {
-    const fibSeq = inverseFib(arr.length);
-    const leafs = [];
-    arr[arr.length] = 1;
+    if(arr.length <= 2) return 1;
 
-    let prev = 0;
+    const target = arr.length;
+    const fibSeq = fibDynamic(Math.min(arr.length, 26));
+    const positions = [];
+    const visited = [];
 
-    for (let i = 0; i < arr.length + 1; i++) {
-      const distFromPrev =  i - prev;
+    for (let i = 0; i <= fibSeq.length || fibSeq[i] <= arr.length; i++) {
+      const pos = fibSeq[i] - 1;
 
-      if(arr[i - 1] === 1 && fibSeq[distFromPrev] !== undefined) {
-        prev = i;
-        leafs.push(fibSeq[distFromPrev])
+      if(arr[pos] === 1 && !visited[pos]) {
+        positions.push({pos, move: 1})
+        visited[pos] = true;
       }
     }
 
-    return leafs.length;
+    while(positions.length > 0) {
+      const curPos = positions.shift();
+
+      for (let j = fibSeq.length - 1; j > 0; j--) {
+        const nextPos = curPos.pos + fibSeq[j];
+
+        if(nextPos === target) return curPos.move + 1;
+        else if(nextPos < target && arr[nextPos] === 1 && !visited[nextPos]) {
+          positions.push({pos: nextPos, move: curPos.move + 1});
+          visited[nextPos] = true;
+        }    
+      }
+    }
+
+    return -1;
   }
 
   return solution(arr);
 }
 
+assert.equal(run([0, 0, 0, 1, 1, 0, 1, 1, 0, 0]), 2);
 assert.equal(run([0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0]), 3);
+assert.equal(run([1, 1, 1]), 2);
+assert.equal(run([1]), 1);
+assert.equal(run([]), 1);

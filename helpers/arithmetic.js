@@ -43,19 +43,18 @@ const fib = n => {
 }
 
 const fibDynamic = n => {
-  const fib = Array(n + 2).fill(0);
+  const fib = Array(n + 1).fill(0);
   fib[1] = 1;
 
   for (let i = 2; i < n + 1; i++) {
     fib[i] = fib[i - 2] + fib[i - 1];
   }
 
-  return fib[n];
+  return fib;
 }
 
-
 const inverseFib = n => {
-  const inverseList = {};
+  const inverseList = {'1': 1, '2': 1};
   const fib = Array(n + 2).fill(0);
   fib[1] = 1;
 
