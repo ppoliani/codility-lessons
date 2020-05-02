@@ -5,7 +5,7 @@ const {sieve} = require('../helpers/sieve');
 const run = (A, B) => {
 
   const solution = (A, B) => {
-    const primeDivisorsSum = N => {
+    const primeDivisors = N => {
       const primes = sieve(N).reduce((acc, item, index) => {
         if(item) {
           acc.push(index)
@@ -14,7 +14,6 @@ const run = (A, B) => {
         return acc;
       }, []);
 
-      let sum = 0;
       const divisors = [];
 
       for (let i = 0; i < primes.length; i++) {
@@ -22,21 +21,38 @@ const run = (A, B) => {
         
         if(N % prime === 0) {
           divisors.push(prime);
-          sum += prime;
         }
       }
 
-      return sum;
+      return divisors;
     }
 
     let count = 0;
 
+    const deepEqual = (arr1, arr2) => {
+      let numOfEqual = 0;
+
+      for (let j = 0; j < arr1.length; j++) {
+        const primeN = arr1[j];
+        const primeM = arr2[j];
+        
+        if(primeN === primeM) {
+          numOfEqual++;
+        }
+        else {
+          return false;
+        }
+    }
+
+    return true;
+  }
+
     for (let i = 0; i < A.length; i++) {
-      const sumN = primeDivisorsSum(A[i]);
-      const sumM = primeDivisorsSum(B[i]);
+      const primeDivisorsN = primeDivisors(A[i]);
+      const primeDivisorsM = primeDivisors(B[i]);
       
-      if(sumN > 0 && sumN === sumM) {
-        count += 1;
+      if(primeDivisorsN.length === primeDivisorsM.length) {
+        if(deepEqual(primeDivisorsN, primeDivisorsM)) count += 1;
       }
     }
 
@@ -46,4 +62,5 @@ const run = (A, B) => {
   return solution(A, B);
 }
 
+assert.deepEqual(run([1], [1]), 1);
 assert.deepEqual(run([15, 10, 3], [75, 30, 5]), 1);
