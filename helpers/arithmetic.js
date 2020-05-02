@@ -37,4 +37,27 @@ const lcm = (a, b) => {
   return a * (b / gcd(a, b));
 }
 
-module.exports = {getFactors, numOfFactors, gcd, lcm}
+const fib = n => {
+  if(n <= 1) return n;
+  return fib(n - 1) + fib(n - 2)
+}
+
+const fibDynamic = n => {
+  const fib = Array(n + 2).fill(0);
+  fib[1] = 1;
+
+  for (let i = 2; i < n + 1; i++) {
+    fib[i] = fib[i - 2] + fib[i - 1];
+  }
+
+  return fib[n];
+}
+
+module.exports = {
+  getFactors, 
+  numOfFactors, 
+  gcd, 
+  lcm,
+  fib,
+  fibDynamic
+}
