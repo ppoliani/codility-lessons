@@ -1,59 +1,29 @@
 const assert = require('assert');
-const {lcm} = require('../helpers/arithmetic');
-const {sieve} = require('../helpers/sieve');
+const {gcd} = require('../helpers/arithmetic');
 
 const run = (A, B) => {
 
   const solution = (A, B) => {
-    const primeDivisors = N => {
-      const primes = sieve(N).reduce((acc, item, index) => {
-        if(item) {
-          acc.push(index)
-        }
-
-        return acc;
-      }, []);
-
-      const divisors = [];
-
-      for (let i = 0; i < primes.length; i++) {
-        const prime = primes[i];
-        
-        if(N % prime === 0) {
-          divisors.push(prime);
-        }
-      }
-
-      return divisors;
+    const reduce = (a, gcdVal) => {
+      const remainder = a / gcdVal;
+      if(gcdVal === 1) return a;
+      if(remainder === 1) return 1;
+      else return reduce(remainder, gcd(gcdVal, remainder));
     }
 
     let count = 0;
 
-    const deepEqual = (arr1, arr2) => {
-      let numOfEqual = 0;
-
-      for (let j = 0; j < arr1.length; j++) {
-        const primeN = arr1[j];
-        const primeM = arr2[j];
-        
-        if(primeN === primeM) {
-          numOfEqual++;
-        }
-        else {
-          return false;
-        }
-    }
-
-    return true;
-  }
-
     for (let i = 0; i < A.length; i++) {
-      const primeDivisorsN = primeDivisors(A[i]);
-      const primeDivisorsM = primeDivisors(B[i]);
-      
-      if(primeDivisorsN.length === primeDivisorsM.length) {
-        if(deepEqual(primeDivisorsN, primeDivisorsM)) count += 1;
-      }
+      const a = A[i];
+      const b = B[i];
+     
+      const gcdVal = gcd(a, b);
+
+      const reducedA = reduce(a, gcdVal);
+      const reducedB = reduce(b, gcdVal);
+
+      if(reducedA === 1 && reducedB === 1) count += 1;
+      else if(gcd(reducedA, gcdVal) !== 1 && gcd(reducedB, gcdVal) !== 1) count += 1;
     }
 
     return count;
