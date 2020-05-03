@@ -327,6 +327,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/fibonacci/fibFrog.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Ladder",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/fibonacci/ladder.js"
     }
   ]
 }
