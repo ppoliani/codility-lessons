@@ -3,6 +3,9 @@ const assert = require('assert');
 const run = (K, M, A) => {
 
   const solution = (K, M, A) => {
+    // check if there is a block which has a some of less than num
+    // basically it will check if there are K subarrays with sum bigger than num
+    // if not then the first statement is true
     const check = (num, K, A) => {
       let i = 0;
       let sum = 0;
