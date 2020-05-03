@@ -336,6 +336,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/fibonacci/ladder.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Min max division",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/binary-search/minMaxDivision.js"
     }
   ]
 }
