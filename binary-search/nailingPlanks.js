@@ -3,17 +3,17 @@ const assert = require('assert');
 const run = (A, B, C) => {
 
   const solution = (A, B, C) => {
-    const check = (nail, A, B) => {
-      if(!nail) return false;
-      let i = 0;
-      let n = A.length;
+    const check = nailCount => {
+      if(!nailCount) return false;
+      let covered = 0;
 
-      while(n > 0) {
-        if(nail < A[i] && nail > B[i]) return false;
-        n--;
+      for (let i = 0; i < nailCount; i++) {        
+        for (let j = 0; j < A.length; j++) {
+          if(C[i] >= A[j] && C[i] <= B[j]) covered += 1;
+        }
       }
-
-      return true;
+      
+      return covered >= A.length;
     }
 
     let min = -1;
@@ -23,8 +23,8 @@ const run = (A, B, C) => {
     while(beg <= end) {
       const mid = Math.floor((beg + end) / 2);
 
-      if(check(C[mid], A, B)) {
-        min = mid;
+      if(check(mid, A, B, C)) {
+        min = mid + 1;
         end = mid - 1; 
       }
       else {
