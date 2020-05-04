@@ -20,9 +20,6 @@ const run = (A, B, C) => {
           curPlank += 1;
         }
       }
-      
-      console.log('Covered', covered)
-      console.log('A.length', A.length)
 
       return covered >= A.length;
     }
