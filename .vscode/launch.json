@@ -345,6 +345,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/binary-search/minMaxDivision.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Nailing Planks",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/binary-search/nailingPlanks.js"
     }
   ]
 }
