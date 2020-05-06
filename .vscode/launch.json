@@ -354,6 +354,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/binary-search/nailingPlanks.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Abs distinct",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/caterpillar/absDistinct.js"
     }
   ]
 }
