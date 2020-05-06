@@ -7,30 +7,21 @@ const run = (M, A) => {
     let front = 0;
     let maxSum = 0;
 
-    const isDistinctSlice = (back, front) => {
-      const elems = {};
-      const sum = 0;
-
-      for (let i = back; i <= front; i++) {
-        if(elems[A[i]]) return false;
-        elems[A[i]] = true;
-      }
-
-      return true;
-    }
-
     for (let i = 0; i <= M; i++) {
       maxSum += i;
     }
 
     for (let back = 0; back < A.length; back++) {
       let sumSum = 0;
+      const elems = {};
+
       front = back;
 
-      while(front < A.length && sumSum + A[front] <= maxSum && isDistinctSlice(back, front)) {
+      while(front < A.length && sumSum + A[front] <= maxSum && !elems[A[front]]) {
+        elems[A[front]] = true;
+        sumSum += A[front];
         total += 1;
         front += 1;
-        sumSum += A[front];
       }
 
       if(total > 1000000000) return 1000000000;
