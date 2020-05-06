@@ -363,6 +363,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/caterpillar/countDistinctSlices.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Count triangles",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/caterpillar/countTriangles.js"
     }
   ]
 }
