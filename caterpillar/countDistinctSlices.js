@@ -4,25 +4,16 @@ const run = (M, A) => {
 
   const solution = (M, A) => {
     let total = 0;
-    let front = 0;
-    let maxSum = 0;
+    let back = -1;
+    const found = [];
 
-    for (let i = 0; i <= M; i++) {
-      maxSum += i;
-    }
-
-    for (let back = 0; back < A.length; back++) {
-      let sumSum = 0;
-      const elems = {};
-
-      front = back;
-
-      while(front < A.length && sumSum + A[front] <= maxSum && !elems[A[front]]) {
-        elems[A[front]] = true;
-        sumSum += A[front];
-        total += 1;
-        front += 1;
+    for (let front = 0; front < A.length; front++) {
+      if(found[A[front]] > back) {
+        back = found[A[front]]
       }
+
+      total += front - back;
+      found[A[front]] = front;
 
       if(total > 1000000000) return 1000000000;
     }
