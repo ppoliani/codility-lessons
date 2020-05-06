@@ -358,11 +358,11 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Abs distinct",
+      "name": "Count distinct slices",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/caterpillar/absDistinct.js"
+      "program": "${workspaceFolder}/caterpillar/countDistinctSlices.js"
     }
   ]
 }
