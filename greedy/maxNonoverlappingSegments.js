@@ -16,13 +16,15 @@ const run = (A, B) => {
         if(!segs[l]) count++;
         if(!segs[r]) count++;
 
+        segs[l] = segs[r] = true;
+
         r = l;
         l = r - 1;
-
-        segs[l] = segs[r] = true;
+      }
+      else {
+        l--;
       }
 
-      l--;
     }
 
     return count;
@@ -30,6 +32,8 @@ const run = (A, B) => {
 
   return solution(A, B);
 }
+
+assert.equal(run([0, 2, 100], [0, 50, 1000]), 3)
 assert.equal(run([1, 3], [4, 5]), 0);
 assert.equal(run([1, 3, 7, 9, 9], [5, 6, 8, 9, 10]), 3);
 assert.equal(run([1, 3], [2, 5]), 2);
