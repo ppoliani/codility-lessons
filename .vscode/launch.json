@@ -390,6 +390,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/greedy/maxNonoverlappingSegments.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Tie ropes",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/greedy/tieRopes.js"
     }
   ]
 }
