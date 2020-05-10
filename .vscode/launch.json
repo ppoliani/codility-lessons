@@ -372,6 +372,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/caterpillar/countTriangles.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Min abs sum of two",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/caterpillar/minAbsSumOfTwo.js"
     }
   ]
 }
