@@ -381,6 +381,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/caterpillar/minAbsSumOfTwo.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Max non overlapping segments",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/greedy/maxNonoverlappingSegments.js"
     }
   ]
 }
