@@ -399,6 +399,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/greedy/tieRopes.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Min abs sum",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/dynamic-programming/minAbsSum.js"
     }
   ]
 }
