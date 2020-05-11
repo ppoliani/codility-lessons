@@ -23,4 +23,20 @@ const dynamicCoinChanging = (C, K) => {
   return dp;
 }
 
-module.exports = {dynamicCoinChanging}
+const dynamicCoinChangingOptimized = (C, K) => {
+  const n = C.length;
+  const dp = [0, ...Array(K).fill(Number.POSITIVE_INFINITY)];
+
+  for (let i = 1; i < n + 1; i++) {
+    for (let j = C[i - 1]; j < K + 1; j++) {
+      dp[j] = Math.min(dp[j - C[i - 1]] + 1, dp[j]);
+    }
+  }
+
+  return dp;
+}
+
+module.exports = {
+  dynamicCoinChanging,
+  dynamicCoinChangingOptimized
+}
