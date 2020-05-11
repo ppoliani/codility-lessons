@@ -41,13 +41,13 @@ const dynamicCoinChangingOptimized = (C, K) => {
 // numOfWays(0) = 1; We have one way to jump to location 0
 // numOfWays(n) = numOfWays(n - 1) + numOfWays(n - 3) + numOfWays(n - 5)  
 const frog = (S, K) => {
-  const n = S.length;
-  const dp = [1, Array(n).fill(0)]
+  const dp = Array(K + 1).fill(0)
+  dp[0] = 1;
 
   for (let i = 1; i < K + 1; i++) {
-    for (let j = 0; j < n; j++) {
+    for (let j = 0; j < S.length; j++) {
       if(S[j] <= i) {
-        dp[i] = dp[i] + dp[i - S[j]];
+        dp[i] += dp[i - S[j]];
       }      
     }
   }
@@ -55,7 +55,22 @@ const frog = (S, K) => {
   return dp[K];
 }
 
+const frogRecursive = (S, K) => {
+  if(K === 0) return 1;
+  let total = 0;
+
+  for (let i = 0; i < S.length; i++) {
+    if(K - S[i] >= 0) {
+      total += frogRecursive(S, K - S[i])
+    }
+  }
+
+  return total;
+}
+
 module.exports = {
   dynamicCoinChanging,
-  dynamicCoinChangingOptimized
+  dynamicCoinChangingOptimized,
+  frog,
+  frogRecursive
 }
