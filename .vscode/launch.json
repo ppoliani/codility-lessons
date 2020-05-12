@@ -408,6 +408,15 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/dynamic-programming/minAbsSum.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Number solitaire",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/dynamic-programming/numberSolitaire.js"
     }
   ]
 }
