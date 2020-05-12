@@ -3,31 +3,20 @@ const assert = require('assert');
 const run = (A) => {
 
   const solution = (A) => {
-    const N = A.length - 1;
-    const dp = [A[0], A[0] + A[1], ...Array(N - 2).fill(0)];
-    const moves = [1, 2, 3, 4, 5, 6];
+    const N = A.length;
+    const max = [A[0], ...Array(N - 1).fill(Number.MIN_SAFE_INTEGER)]
 
-    const F = K => {
-      let total = 0;
-      let max = 0;
+    for (let pos = 0; pos < N - 1; pos++) {
+      for (let i = 1; i <= 6; i++) {
+        const jumpPos = pos + i;
+        
+        if(jumpPos >= N) continue;
 
-      for (let i = 0; i < moves.length; i++) {
-        for(let j = K; j > 0; j--) {
-          if(K - moves[i] >= 0) { 
-            dp[K] = dp[K] + dp[j - moves[i]];
-          }
-        }
-
-        dp[K] += A[K];
+        max[jumpPos] = Math.max(max[jumpPos], A[pos + i] + max[pos])
       }
-
-
-      // max = Math.max(max, total) 
-
-      return total;
     }
 
-    return F(2);
+    return max[N - 1];
   }
 
   return solution(A);
