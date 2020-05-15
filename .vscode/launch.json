@@ -20,7 +20,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/arrays/rotation-alt.js"
+      "program": "${workspaceFolder}/2-arrays/rotation-alt.js"
     },
     {
       "type": "node",
@@ -29,7 +29,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/arrays/oddOccurrencesInArray.js"
+      "program": "${workspaceFolder}/2-arrays/oddOccurrencesInArray-alt.js"
     },
     {
       "type": "node",
