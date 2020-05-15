@@ -1,4 +1,4 @@
-const Stack = require('./helpers/stack');
+const Stack = require('../helpers/stack');
 
 const run = n => {
 const stack = Stack.createStack();
