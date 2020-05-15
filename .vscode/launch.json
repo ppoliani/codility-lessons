@@ -47,7 +47,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/time-complexity/tapeEquilibrium.js"
+      "program": "${workspaceFolder}/3-time-complexity/tapeEquilibrium-alt.js"
     },
     {
       "type": "node",
