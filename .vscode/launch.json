@@ -20,7 +20,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/arrays/rotation.js"
+      "program": "${workspaceFolder}/arrays/rotation-alt.js"
     },
     {
       "type": "node",
