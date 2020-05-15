@@ -101,7 +101,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/prefix-sums/genomicRangeQuery.js"
+      "program": "${workspaceFolder}/5-prefix-sums/genomicRangeQuery-alt.js"
     },
     {
       "type": "node",
