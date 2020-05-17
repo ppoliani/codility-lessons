@@ -182,7 +182,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/stack-queues/fish.js"
+      "program": "${workspaceFolder}/7-stack-queues/fish-alt.js"
     },
     {
       "type": "node",
