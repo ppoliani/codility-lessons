@@ -200,7 +200,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/stack-queues/stoneWall.js"
+      "program": "${workspaceFolder}/7-stack-queues/stoneWall-alt.js"
     },
     {
       "type": "node",
