@@ -1,3 +1,8 @@
+/**
+ * Notice that if the sequence a0, a1, . . . , an−1 contains a leader, then after removing a pair of
+ * elements of different values, the remaining sequence still has the same leader.
+ * 
+ */
 const leader = A => {
   const N = A.length;
   const stack = [A[0]];
