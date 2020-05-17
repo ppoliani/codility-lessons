@@ -15,6 +15,10 @@ const run = (arr) => {
       a2[i] = Math.max((a2[i+1] || 0) + arr[i], 0);
     }
 
+
+  console.log(a1)
+  console.log(a2)
+
     let max = 0;
 
     for(let i = 1; i < length; i++) {
