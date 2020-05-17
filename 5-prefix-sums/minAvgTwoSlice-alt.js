@@ -4,7 +4,7 @@ const run = (A) => {
 
   /**
    * The min average can be searched in slices of size 2 or 3 as we cannot have slices longer than that to produce 
-   * lower average that the subslice of 2 or 3 items. For example, a slice of 4 items cannot have smaller average that it's subslice
+   * lower average that the sub slice of 2 or 3 items. For example, a slice of 4 items cannot have smaller average that it's subslice
    * that contains two items. More specifically, 4 can split into two slices of two items. If the first slice is bigger that then total average
    * then it simply means that the second slice will have a much lower average. In any case, we can't have both slices having higher average than
    * the total slice of 4. Same applies if we have 5 items, in that case we can have two slices of 2 and three items and the same principle applies.
