@@ -12,5 +12,20 @@ const divisors = n => {
   return result;
 }
 
+/**
+ * If ww find a number between 2 and n − 1 that divides n then n is a composite number. Otherwise,
+ * n is a prime number.
+ */
+const primality = n => {
+  let i = 2;
 
-module.exports = {divisors}
+  while(i * i < n) {
+    if(n % i === 0) return false;
+    i += 1;
+  }
+
+  return true;
+}
+
+
+module.exports = {divisors, primality}
