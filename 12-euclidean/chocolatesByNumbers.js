@@ -4,7 +4,6 @@ const {lcm} = require('../helpers/arithmetic');
 const run = (N, M) => {
 
   const solution = (N, M) => {
-    console.log(lcm(N, M))
     return lcm(N, M) / M;
   }
 
