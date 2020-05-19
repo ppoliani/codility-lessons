@@ -30,8 +30,6 @@ const run = (A) => {
     let activeCircles = 0;
     let intersections = 0;
 
-    console.log(points)
-
     for (let i = 0; i < points.length; i++) {
       const prevPoint = points[i - 1];
       const point = points[i];
