@@ -326,7 +326,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/13-fibonacci/fibFrog-alt.js"
+      "program": "${workspaceFolder}/13-fibonacci/fibFrog-alt2.js"
     },
     {
       "type": "node",

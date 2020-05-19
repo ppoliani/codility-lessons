@@ -12,7 +12,7 @@ const run = (A) => {
    */
   const solution = (A) => {
     const N = A.length;
-    const fib = [0, 1, ...Array(25).fill(0)]
+    const fib = [0, 1, ...Array(25).fill(0)];
     const positions = Array(N).fill(0);
 
     for (let i = 2; i <= 26; i++) {
