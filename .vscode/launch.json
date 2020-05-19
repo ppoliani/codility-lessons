@@ -7,6 +7,15 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Task 1",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/0-prev-tasks/task-1.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Binary Gap",
       "skipFiles": [
         "<node_internals>/**"
