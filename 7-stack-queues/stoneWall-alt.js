@@ -6,7 +6,7 @@ const run = (A) => {
    * Maintain a stack that we:
    * 1. Push to the stack if the peak of the stack has a shorter and increase the count
    * 2. If the peak of the stack has a taller block than the current then pop until you find a shorter.
-   * 2.1 Whe shorter found push to stack and increase the count; if same height found then continue
+   * 2.1 When shorter found push to stack and increase the count; if same height found then continue
    * 3. If peak has the same height then continue
    */
   const solution = (A) => {

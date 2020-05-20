@@ -6,7 +6,7 @@ const run = (S, P, Q) => {
    * To make quick queries when ranges are involved, we can utilize the prefix sum technique.
    * In this scenario we want a way to check which nucleotide exist within a range defined by P and Q arrays.
    * An existence of nucleotide can be easily queried if we can store the count of each of them until index i.
-   * For example if at index i=3 we have 2 As and at index i=5 We have a count of 3 As it indicates that there is one A with
+   * For example if at index i=3 we have 2 As and at index i=5 We have a count of 3 As it indicates that there is one A within
    * that range. Knowing that information we can easily tell what is the smallest nucleotide.
    * If A is there then we simply return 1 if not we check the next smallest which is C
    */

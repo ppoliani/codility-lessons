@@ -6,7 +6,7 @@ const run = (K, M, A) => {
    * We can say that the smallest possible sum can be a sum of one item. That large sum of all slices
    * can not be any smaller than the largest number the array because even if the other slices have smaller sum the total sum
    * will be the one of the largest slice which will be the slice with the largest number. Essentially, the smallest large sum is 
-   * he one that has the largest number of the array. Consequently, the largest possible sum is the one that has all items i.e. the sum of the entire array.
+   * the one that has the largest number of the array. Consequently, the largest possible sum is the one that has all items i.e. the sum of the entire array.
    * Knowing the two edges we can run a binary search algorithm to find the smallest large sum.
    * The way we run the binary search is as follows. We need start with a candidate answer being the mid of the above the two edges.
    * We then check if there are no more that K slices that exceed the candidate. This means that there might be a slice that has a smaller sum than

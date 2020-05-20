@@ -6,4 +6,9 @@ const swap = (list, a, b) => {
   return list;
 }
 
+const swap2 = (list, a, b) => {
+  [list[a], list[b]] = [list[b], list[a]]
+  return list;
+}
+
 module.exports = swap;

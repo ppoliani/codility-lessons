@@ -4,13 +4,11 @@ const run = (A, K) => {
 
   /**
    * Do K times the following:
-   *   - iterate through A and swap the item at 0 with the item at j + 1 as long as j + 1 doesn't cross the limit of the arry
+   *   - iterate through A and swap the item at 0 with the item at j + 1 as long as j + 1 doesn't cross the limit of the array
    */
   const solution = (A, K) => {
     const swap = (A, i, j) => {
-      const tmp = A[i];
-      A[i] = A[j];
-      A[j] = tmp;
+      [A[i], A[j]] = [A[j], A[i]]
     }
 
     const N = A.length;

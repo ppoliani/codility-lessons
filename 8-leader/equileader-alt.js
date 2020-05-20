@@ -4,7 +4,7 @@ const run = (A) => {
 
   /**
    * An equi leader can be only the leader of the full array. Thus we first find the leader of the entire array.
-   * The we iterate from left to right and keep the count of the leader in the slice [0, i] to [i+1, N-1]. 
+   * Then we iterate from left to right and keep the count of the leader in the slice [0, i] to [i+1, N-1]. 
    * Finally we check when the left count of leaders and right count are leaders in their sub-slice respectively. 
    */
   const solution = (A) => {
