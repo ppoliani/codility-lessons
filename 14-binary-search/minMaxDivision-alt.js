@@ -48,7 +48,7 @@ const run = (K, M, A) => {
     let min = sum;
 
     while(beg <= end) {
-      const mid = Math.round((beg + end) / 2);
+      const mid = Math.floor((beg + end) / 2);
 
       if(check(mid)) {
         min = mid;

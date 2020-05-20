@@ -362,7 +362,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/binary-search/nailingPlanks.js"
+      "program": "${workspaceFolder}/14-binary-search/nailingPlanks-alt.js"
     },
     {
       "type": "node",
