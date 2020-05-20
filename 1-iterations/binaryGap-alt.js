@@ -4,11 +4,11 @@ const run = (N) => {
 
   /**
    * Keep the index of the beginning of the gap i.e. when we see 1 and we're not in the middle of gap yet
-   * Everytime we see 0 and we're in a gap we just increment the value
+   * Every time we see 0 and we're in a gap we just increment the value
    * When we see a closing 1 we store the max value we have from all the gaps so far. We also start the next potential gap
    */
   const solution = (N) => {
-    const binary =  N.toString(2);
+    const binary = N.toString(2);
     let max = 0;
     let startIndex = -1;
     let numOfZeros = 0;

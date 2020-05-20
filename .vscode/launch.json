@@ -371,7 +371,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/caterpillar/countDistinctSlices.js"
+      "program": "${workspaceFolder}/15-caterpillar/countDistinctSlices.js"
     },
     {
       "type": "node",
